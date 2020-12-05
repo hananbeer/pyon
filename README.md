@@ -13,4 +13,6 @@ print(json_data['a']['b'])
 # PYON!
 pyon_data = PyonObject(json_data)
 print(pyon_data.a.b)
+
+print(pyon_data.a.b.c.d.e.f.g) # `PyoNone`
 ```

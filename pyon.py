@@ -287,10 +287,13 @@ class PyonObject(PyonBase):
         super(PyonObject, self).__setattr__('_pyon_data', arg)
     else:
       if type(arg) == dict:
-        # NOTE: positional arguments override kwargs
         # ie. PyonObject({'val': 69}, val=420, l33t='c0d3'))
         # provides: { "val": 69, "l33t": "c0d3" }
-        kwargs.update(arg)
+        
+        # NOTE: kwargs override positional arg:
+        arg.update(kwarg)
+        # for positional arguments to override kwargs:
+        #kwargs.update(arg)
 
       super(PyonBase, self).__setattr__('_pyon_prim', False)
 
